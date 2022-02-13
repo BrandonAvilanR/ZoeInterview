@@ -93,8 +93,46 @@ describe('Match Test', () => {
     });
     expect(goBackBtn).toBeTruthy();
     fireEvent.click(goBackBtn);
-  })
+  });
 
+  it('Test DropDown', function () {
+    const { container } = render(
+      <MemoryRouter initialEntries={[{ pathname: '/', state }]}>
+        <Match />
+      </MemoryRouter>
+    );
+
+    let dropdown = getByRole(container, 'button', {
+      name: /select\.\.\./i
+    });
+    expect(dropdown).toBeTruthy();
+    fireEvent.click(dropdown);
+    
+    const sortName = getByRole(container, 'button', {
+      name: /name \(a\-z\)/i
+    });
+    expect(sortName).toBeTruthy();
+    fireEvent.click(sortName);
+
+    const sortId = getByRole(container, 'button', {
+      name: /id/i
+    });
+    expect(sortId).toBeTruthy();
+    fireEvent.click(sortId);
+
+    const sortHigh = getByRole(container, 'button', {
+      name: /income: high first/i
+    });
+    expect(sortHigh).toBeTruthy();
+    fireEvent.click(sortHigh);
+
+    const sortLow = getByRole(container, 'button', {
+      name: /income: Low first/i
+    });
+    expect(sortLow).toBeTruthy();
+    fireEvent.click(sortLow);
+
+  });
 
   it('Mount Match without data', function () {
     state.agentList = [];

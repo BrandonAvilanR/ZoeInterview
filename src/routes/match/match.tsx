@@ -59,7 +59,7 @@ export const Match = () => {
           <FilterContainer>
             <div>
               <p>Order agents by</p>
-              <DropdownButton id="dropdown-basic-button" title={filter || 'Select...'}>
+              <DropdownButton id="dropdown" title={filter || 'Select...'}>
                 <Dropdown.Item onClick={() => handleSorting('name', 'Name (A-Z)')}>Name (A-Z)</Dropdown.Item>
                 <Dropdown.Item onClick={() => handleSorting('id', 'ID')}>ID</Dropdown.Item>
                 <Dropdown.Item onClick={() => handleSorting('income', 'Income: High first')}>Income: High first</Dropdown.Item>
