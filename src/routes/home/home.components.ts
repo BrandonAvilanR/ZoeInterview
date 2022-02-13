@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { BlackColor, WhiteColor } from '../../styles/colors';
+import { BlackColor, WhiteColor } from '../../styles/Colors';
 
 export const HomeContainer = styled.div`
   display: flex;

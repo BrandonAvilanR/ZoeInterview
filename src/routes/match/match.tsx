@@ -1,19 +1,19 @@
-import { Agent } from '../../interfaces/agent.interface';
+import { Agent } from '../../interfaces/Agent.Interface';
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { AgentCard, AgentsContainer, FilterContainer, MatchContainer, ShowContainer } from './match.components';
-import { AgentState } from '../../interfaces/agentState.interface';
+import { AgentCard, AgentsContainer, FilterContainer, MatchContainer, ShowContainer } from './Match.Components';
+import { AgentState } from '../../interfaces/AgentState.Interface';
 import { DropdownButton, Dropdown } from 'react-bootstrap';
 import User from '../../images/user.png';
-import { BlueIconButton } from '../../styles/components';
+import { BlueIconButton } from '../../styles/SharedComponents';
 import { FaArrowLeft } from 'react-icons/fa';
 
 
 export const Match = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
-  const { agentList: list, income } = state as AgentState;
-  const [agentList, setAgentsList] = useState<Agent[]>(list || []);
+  const { agentList, income } = state as AgentState || [];
+  const [list, setAgentsList] = useState<Agent[]>(agentList || []);
   const [showNumberAgent, setShowNumberAgent] = useState(3);
   const [filter, setFilter] = useState<string>();
 
@@ -31,7 +31,7 @@ export const Match = () => {
 
   const handleSorting = (key: keyof Agent, label: string, asc: boolean = true) => {
     setFilter(label);
-    const aux = [...agentList].sort((a, b) => {
+    const aux = [...list].sort((a, b) => {
       if (a[key] < b[key]) {
         return asc ? -1 : 1;
       }
@@ -44,7 +44,7 @@ export const Match = () => {
   }
 
   const handleHide = (id: number) => {
-    const aux = [...agentList];
+    const aux = [...list];
     aux.map(agent => agent.id === id ? agent.visible = false : null)
     setAgentsList(aux);
   }
@@ -54,7 +54,7 @@ export const Match = () => {
       <h2 style={{ marginBottom: 0 }}>Your matches</h2>
       <p style={{ marginTop: 0 }}>Your income: <b>${income}</b></p>
 
-      {agentList.length > 0 ?
+      {list.length > 0 ?
         <>
           <FilterContainer>
             <div>
@@ -74,8 +74,8 @@ export const Match = () => {
 
           <AgentsContainer>
 
-            {agentList.filter(a => a.visible === true).slice(0, showNumberAgent).map(agent =>
-              <AgentCard key={agent.id} onClick={() => handleHide(agent.id)}>
+            {list.filter(a => a.visible === true).slice(0, showNumberAgent).map(agent =>
+              <AgentCard id="AgentCard" key={agent.id} onClick={() => handleHide(agent.id)}>
                 <img src={User} alt="user profile" />
                 <div>
                   <p><b>{agent.name}</b></p>
@@ -93,7 +93,7 @@ export const Match = () => {
         </>
         :
         <>
-          <p>No available Agents based on your income. Please try a different income value.</p>
+          <p id='WithOutData'>No available Agents based on your income. Please try a different income value.</p>
           <BlueIconButton
             onClick={() => navigate('home')}>
             Go Back <FaArrowLeft />

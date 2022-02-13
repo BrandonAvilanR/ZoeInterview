@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { BlackColor, BlueColor, DarkGreyColor, GreyColor, WhiteColor } from '../../styles/colors';
+import { BlackColor, BlueColor, DarkGreyColor, GreyColor, WhiteColor } from '../../styles/Colors';
 
 export const MatchContainer = styled.div`
   display: flex;

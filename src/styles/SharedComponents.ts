@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { BannerColor, BlueColor, GreyColor, WhiteColor } from './colors';
+import { BannerColor, BlueColor, GreyColor, WhiteColor } from './Colors';
 
 export const ZoeNav = styled.div`
   display: flex;

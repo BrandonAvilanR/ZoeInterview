@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Agent } from '../../interfaces/agent.interface';
-import { getAgents } from '../../services/agents.services';
-import { HomeContainer, InputContainer, InputLabel, StyledInput } from './home.components';
+import { Agent } from '../../interfaces/Agent.Interface';
+import { getAgents } from '../../services/Agents.Service';
+import { HomeContainer, InputContainer, InputLabel, StyledInput } from './Home.Components';
 import People from '../../images/People.png';
 import { FaArrowRight } from 'react-icons/fa';
 import { BsCurrencyDollar } from 'react-icons/bs';
-import { AgentState } from '../../interfaces/agentState.interface';
-import { ButtonContainer, BlueIconButton } from '../../styles/components';
+import { AgentState } from '../../interfaces/AgentState.Interface';
+import { ButtonContainer, BlueIconButton } from '../../styles/SharedComponents';
 
 export const Home = () => {
 

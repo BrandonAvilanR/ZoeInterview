@@ -1,4 +1,4 @@
-import { Agent } from './agent.interface';
+import { Agent } from './Agent.Interface';
 
 export interface AgentState {
   agentList: Agent[];

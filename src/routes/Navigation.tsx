@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { Home } from './home/home';
-import { Match } from './match/match';
+import { Home } from './home/Home';
+import { Match } from './match/Match';
 import  ZoeLogo from '../images/ZoeLogo.png'
-import { ZoeNav } from '../styles/components';
+import { ZoeNav } from '../styles/SharedComponents';
 
 export const Navigation = () => {
   return (
